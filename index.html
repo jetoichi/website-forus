@@ -3,218 +3,269 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Water Wise, Future Bright</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <title>Yousef ❤️ Malak</title>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-    }
-
     body {
-      background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #ffe6f0, #fff, #ffe6f0);
+      color: #333;
       overflow-x: hidden;
-      color: #003366;
-      position: relative;
     }
-
-    .animated-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      overflow: hidden;
-    }
-
-    .wave {
-      position: absolute;
-      width: 200%;
-      height: 200px;
-      background: rgba(0, 183, 255, 0.2);
-      border-radius: 43%;
-      animation: waveAnim 10s infinite linear;
-    }
-
-    .wave:nth-child(2) {
-      animation-delay: -5s;
-      background: rgba(0, 183, 255, 0.15);
-    }
-
-    @keyframes waveAnim {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    header {
-      background: #0077b6;
-      color: white;
-      padding: 30px 20px;
+    header, footer {
       text-align: center;
-      animation: fadeInDown 1s ease-out;
+      margin: 1rem 0;
+      animation: fadeIn 2s ease;
     }
-
-    header img {
-      width: 120px;
-      animation: bounce 2s infinite;
+    h1 {
+      font-family: 'Parisienne', cursive;
+      font-size: 3rem;
+      color: #ff4d79;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
     }
-
-    header h1 {
-      font-size: 2.8rem;
-      margin-top: 15px;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    section {
-      padding: 60px 20px;
+    .card {
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(5px);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 1.5rem auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       max-width: 900px;
-      margin: auto;
-      animation: fadeInUp 1s ease-in;
+      animation: fadeInUp 1s ease;
     }
-
-    h2 {
-      font-size: 2rem;
-      color: #004d66;
-      margin-bottom: 15px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease-in-out;
+    input, button {
+      font-family: inherit;
+      padding: 0.6rem 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid #ccc;
+      font-size: 1rem;
     }
-
-    p, ul, .cta {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease-in-out;
-    }
-
-    .show { opacity: 1 !important; transform: translateY(0) !important; }
-
-    ul {
-      margin-bottom: 20px;
-      padding-left: 20px;
-    }
-
-    .highlight {
-      background: #d0f0ff;
-      padding: 10px;
-      border-left: 4px solid #0077b6;
-      margin-bottom: 30px;
-    }
-
-    .cta {
-      background: #00b4d8;
+    button {
+      background: linear-gradient(135deg, #ff99b3, #ff7aa8);
+      border: none;
       color: white;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      font-size: 1.3rem;
-      margin: 30px 0;
-      animation: pulse 2s infinite;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
     }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #ff7aa8, #ff99b3);
     }
+    #paragraphs p {
+      font-size: 0.95rem;
+      margin: 0.5rem 0;
+      opacity: 0;
+      animation: fadeInText 1s forwards;
+    }
+    #gallery img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      transition: transform 0.5s;
+    }
+    #gallery img:hover {
+      transform: scale(1.05);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.75rem;
+    }
+    iframe {
+      width: 100%;
+      border-radius: 0.5rem;
+    }
+    .hidden { display: none; }
 
+    /* Floating Hearts */
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background-color: #ff4d79;
+      transform: rotate(45deg);
+      animation: floatUp 5s linear infinite;
+      left: 50%;
+      opacity: 0.8;
+    }
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #ff4d79;
+      border-radius: 50%;
+    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { top: 0; left: -10px; }
+
+    /* Animations */
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(45deg) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) rotate(45deg) scale(1.5); opacity: 0; }
+    }
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
+    @keyframes fadeInText {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-
-    footer {
-      background: #0077b6;
-      color: white;
-      text-align: center;
-      padding: 20px;
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <div class="animated-bg">
-    <div class="wave"></div>
-    <div class="wave"></div>
-  </div>
-
   <header>
-    <img src="https://cdn.corenexis.com/media?w30fcu&168H&p&b&8eyq.png" alt="Water Wise Logo" />
-    <h1>Water Wise, Future Bright</h1>
+    <h1>Yousef ❤️ Malak</h1>
+    <p>I love you — monthsary: <strong>11/11</strong></p>
+    <p>met: 7/11  •  together: 8/11</p>
   </header>
 
-  <section>
-    <div class="highlight">
-      <h2>💧 Campaign Mission</h2>
-      <p>Water isn’t just a resource – it’s life, it’s survival, it’s love. When we waste it, we erase futures. When we protect it, we preserve humanity. Every drop you save is a heartbeat for our planet.</p>
+  <div id="password-card" class="card">
+    <h2>Enter our love password 💌</h2>
+    <input id="password-input" placeholder="type the password..." />
+    <button onclick="unlock()">Enter</button>
+    <p style="font-size:0.8rem;opacity:0.6">hint: it's the little word I asked you to use 💕</p>
+  </div>
+
+  <div id="content" class="hidden">
+    <div class="card">
+      <h2>Hallooo babyy welcome to our little corner</h2>
+      <p>you unlocked this little corner of the web. this place is just for us. tiny, honest, and ready to grow.</p>
     </div>
 
-    <h2>🌍 Who Are We Reaching?</h2>
-    <p>Our target is the global population. This includes households, industries, schools, and governments. Everyone, everywhere, has a role to play in saving water for a brighter future.</p>
-
-    <h2>🧠 What You Should Think</h2>
-    <p>"Water is not infinite." Your small actions matter. We all share the same water planet. Use it wisely.</p>
-
-    <h2>💙 What You Should Feel</h2>
-    <p>A deep connection to water, a sense of responsibility, and hope for change. Saving water is saving lives.</p>
-
-    <h2>⚙️ What You Should Do</h2>
-    <ul>
-      <li>Turn off taps when not in use</li>
-      <li>Use water-efficient appliances</li>
-      <li>Join water-saving challenges</li>
-      <li>Share water tips on social media</li>
-      <li>Educate others in your community</li>
-    </ul>
-
-    <div class="cta">
-      🌊 Join the #WaterWise Movement – Your Future Deserves It
+    <div class="card">
+      <h3>Countdown to Our Next Monthsary 🎉</h3>
+      <div id="countdown" style="font-size:1.5rem; font-weight:600; color:#ff4d79; text-align:center;"></div>
     </div>
 
-    <h2>🚀 Our Goals</h2>
-    <p>
-      ✅ Reduce global water waste<br />
-      ✅ Increase public awareness<br />
-      ✅ Push for better policies<br />
-      ✅ Support clean water access projects
-    </p>
+    <div id="paragraphs" class="card">
+      <h3>Letters & Thoughts (for you)</h3>
+      <div id="paragraph-list"></div>
+      <p style="font-size:0.8rem;opacity:0.6">these are small notes i wrote for you — honest, messy, true.</p>
+    </div>
 
-    <h2>📸 Slogans & Social Media</h2>
-    <p>
-      “You Are 70% Water. Protect Yourself.”<br />
-      “Don’t Let the Future Dry Out.”<br />
-      “Your Tap, Their Tomorrow.”<br /><br />
-      Tag us on your water-saving journey with <strong>#WaterWiseFutureBright</strong>!
-    </p>
-  </section>
+    <div id="gallery" class="card">
+      <h3>Our Gallery</h3>
+      <input type="file" multiple accept="image/*" id="photo-input" />
+      <div id="gallery-grid" class="grid"></div>
+    </div>
 
-  <footer>
-    © 2025 Water Wise Campaign | Designed with 💧 by Earth for Earth
-  </footer>
+    <div id="songs" class="card">
+      <h3>Songs that remind me of you</h3>
+      <p style="font-size:0.9rem;opacity:0.8">i put the spotify tracks you gave me here — click play and think of me 💭🎶</p>
+      <div id="spotify"></div>
+    </div>
+
+    <footer>
+      <p>made with lots of waiting, a little courage, and a playlist. — keep this place private 💖</p>
+    </footer>
+  </div>
 
   <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.2 });
+    const PASSWORD = 'yousef&malak4ever';
+    const paragraphs = [
+      'Malak, from the moment we met online on 7/11, something magical sparked between us. It wasnt just a simple chat it felt like finding a missing piece I didnt even know I was searching for. You completely changed my world in the best possible way.',
+      'I remember those first texts stretching hours into the early morning. I was captivated by your voice when you sent me those voice messages, your kindness, and the way you spoke. You listen without judgment, you encouraged my crazy hopes, and you make me feel like the most important person in the universe.',
+      'You are my anchor when I feel lost and my biggest cheerleader when I win. Even on the toughest days, just seeing your name pop up on my screen brings a ridiculous, uncontrollable smile to my face. You are my safe place, my comfort, and my favorite adventure, all rolled into one.',
+      'I know were counting down the days to 11/11, but honestly, every single day with you is a celebration. Its the little things that mean the most: the silly inside jokes, the way we can finish each others sentences, and the pure, easy joy of simply existing together, even when were kilometers apart (not that far).',
+      'You deserve the world and everything my beautiful baby girl, Malak, and I promise to spend every day of my life trying to give it to you. I love how smart you are, how beautiful you are inside and out, and the strength you carry without even trying.',
+      'we met on 7/11, and every day since has been a new, quiet miracle.',
+      'we became together on 8/11 — a date that changed how i imagine the future.',
+      'You are my forever. I cant wait to see what beautiful memories we create next. Thank you for being you, for loving me, and for choosing us.',
+      'i want to make a thousand simple promises and keep every single one.',
+      'Yours always, Yousef 💖'
+    ];
 
-    document.querySelectorAll('h2, p, ul, .cta').forEach(el => {
-      observer.observe(el);
+    const spotifyLinks = [
+      'https://open.spotify.com/track/3D5jgROA3ffEU5tfSf5M4q?si=201fb1c2f56e4224',
+      'https://open.spotify.com/track/5GpfyJrKHJI36jDKtQiyGN?si=5b4efaa3d8d94f23',
+      'https://open.spotify.com/track/2fuYa3Lx06QQJAm0MjztKr?si=49051a9a8dda4590'
+    ];
+
+    function unlock() {
+      const val = document.getElementById('password-input').value;
+      if (val === PASSWORD) {
+        document.getElementById('password-card').classList.add('hidden');
+        document.getElementById('content').classList.remove('hidden');
+        renderParagraphs();
+        renderSpotify();
+        launchHearts();
+        startCountdown();
+      } else {
+        alert('Wrong password — try again, baby 💌');
+      }
+    }
+
+    function renderParagraphs() {
+      const list = document.getElementById('paragraph-list');
+      paragraphs.forEach((p, i) => {
+        const el = document.createElement('p');
+        el.textContent = p;
+        el.style.animationDelay = `${i * 0.2}s`;
+        list.appendChild(el);
+      });
+    }
+
+    function renderSpotify() {
+      const div = document.getElementById('spotify');
+      spotifyLinks.forEach((s) => {
+        const id = s.match(/track\/([A-Za-z0-9]+)/);
+        const embed = id ? `https://open.spotify.com/embed/track/${id[1]}` : s;
+        const frame = document.createElement('iframe');
+        frame.src = embed;
+        frame.height = 80;
+        div.appendChild(frame);
+      });
+    }
+
+    document.getElementById('photo-input').addEventListener('change', e => {
+      const grid = document.getElementById('gallery-grid');
+      Array.from(e.target.files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = ev => {
+          const img = document.createElement('img');
+          img.src = ev.target.result;
+          grid.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      });
     });
+
+    function startCountdown() {
+      const countdownEl = document.getElementById('countdown');
+      function updateCountdown() {
+        const now = new Date();
+        let next = new Date(now.getFullYear(), 10, 11); // 11/11
+        if (now > next) next = new Date(now.getFullYear() + 1, 10, 11);
+        const diff = next - now;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+        countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s left 💕`;
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    }
+
+    function launchHearts() {
+      setInterval(() => {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = 3 + Math.random() * 2 + 's';
+        heart.style.transform = 'scale(' + (0.5 + Math.random()) + ') rotate(45deg)';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+      }, 400);
+    }
   </script>
 </body>
 </html>
