@@ -1,354 +1,187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yousef ❤️ Malak</title>
-  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom right, #ffe6f0, #fff, #ffe6f0);
-      color: #333;
-      overflow-x: hidden;
-    }
-    header, footer {
-      text-align: center;
-      margin: 1rem 0;
-      animation: fadeIn 2s ease;
-    }
-    h1 {
-      font-family: 'Parisienne', cursive;
-      font-size: 3rem;
-      color: #ff4d79;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-    }
-    .card {
-      background: rgba(255,255,255,0.75);
-      backdrop-filter: blur(5px);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      margin: 1.5rem auto;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      max-width: 900px;
-      animation: fadeInUp 1s ease;
-      position: relative;
-    }
-    input, button {
-      font-family: inherit;
-      padding: 0.6rem 1rem;
-      border-radius: 0.5rem;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-    button {
-      background: linear-gradient(135deg, #ff99b3, #ff7aa8);
-      border: none;
-      color: white;
-      cursor: pointer;
-      transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
-    }
-    button:hover {
-      transform: scale(1.05);
-      background: linear-gradient(135deg, #ff7aa8, #ff99b3);
-      box-shadow: 0 0 10px #ffb6c1;
-    }
-    #paragraphs p {
-      font-size: 0.95rem;
-      margin: 0.5rem 0;
-      opacity: 0;
-      animation: fadeInText 1s forwards;
-      position: relative;
-    }
-    .reaction-buttons {
-      margin-top: 0.3rem;
-    }
-    .reaction-buttons button {
-      background: transparent;
-      border: none;
-      font-size: 1.3rem;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    .reaction-buttons button:hover {
-      transform: scale(1.3);
-    }
-    .floating-emoji {
-      position: absolute;
-      animation: floatEmoji 2s ease-out forwards;
-      pointer-events: none;
-      z-index: 100;
-    }
-    @keyframes floatEmoji {
-      0% { opacity: 1; transform: translateY(0) scale(1); }
-      100% { opacity: 0; transform: translateY(-60px) scale(1.8); }
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Yousef ❤️ Malak</title>
 
-    #gallery img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 0.5rem;
-      transition: transform 0.5s;
-    }
-    #gallery img:hover { transform: scale(1.05); }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 0.75rem;
-    }
-    iframe {
-      width: 100%;
-      border-radius: 0.5rem;
-    }
-    .hidden { display: none; }
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    /* Floating Hearts */
-    .heart {
-      position: fixed;
-      width: 20px;
-      height: 20px;
-      background-color: #ff4d79;
-      transform: rotate(45deg);
-      animation: floatUp 5s linear infinite;
-      left: 50%;
-      opacity: 0.8;
-      z-index: 0;
-    }
-    .heart::before, .heart::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background-color: inherit;
-      border-radius: 50%;
-    }
-    .heart::before { top: -10px; left: 0; }
-    .heart::after { top: 0; left: -10px; }
-
-    /* Stickers */
-    .sticker {
-      position: fixed;
-      width: 40px;
-      height: 40px;
-      opacity: 0.6;
-      animation: floatSticker 10s linear infinite;
-      z-index: 0;
-    }
-    @keyframes floatSticker {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
-    }
-
-    /* Animations */
-    @keyframes floatUp {
-      0% { transform: translateY(0) rotate(45deg) scale(1); opacity: 1; }
-      100% { transform: translateY(-100vh) rotate(45deg) scale(1.5); opacity: 0; }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInText {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
+<style>
+  :root{
+    --bg:#0b1020;
+    --card:#0f1626cc;
+    --accent:#ff6b9a;
+    --accent-2:#ffa07a;
+    --muted:#bfc9d9;
+    --blur: 12px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:Poppins,system-ui;background:radial-gradient(1000px 500px at 10% 10%, rgba(255,107,154,0.07), transparent 10%),radial-gradient(800px 400px at 90% 90%, rgba(255,160,122,0.04), transparent 10%),var(--bg);color:#e9eef8;}
+  .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px;}
+  .card{
+    width:100%;max-width:960px;background:linear-gradient(180deg,var(--card),rgba(255,255,255,0.02));
+    border-radius:20px;padding:26px;border:1px solid rgba(255,255,255,0.04);
+    backdrop-filter: blur(var(--blur));
+    box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    position:relative;overflow:hidden;
+  }
+  header.top{display:flex;gap:12px;align-items:center;margin-bottom:18px;}
+  .logo{font-family:Parisienne,serif;font-size:34px;color:var(--accent);}
+  .logo .heart{animation:beat 1s infinite ease-in-out;}
+  @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+  .small{font-size:12px;color:var(--muted)}
+  .lock-screen{display:grid;place-items:center;padding:28px;border-radius:14px;background:rgba(255,255,255,0.02);gap:12px;}
+  input[type=password]{padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;font-size:16px;width:300px;}
+  button.btn{padding:10px 16px;border-radius:12px;border:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#120815;font-weight:600;cursor:pointer;}
+  .content{display:none;animation:fadeIn 0.8s forwards;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .greet h1{font-family:Parisienne;font-size:38px;color:var(--accent)}
+  .greet p{color:var(--muted)}
+  .paragraphs{margin-top:20px;line-height:1.8;font-size:15px;color:#e9eef8}
+  .paragraphs p{margin-bottom:14px;}
+  .countdown{display:flex;gap:12px;margin:12px 0;}
+  .countdown .box{background:rgba(255,255,255,0.02);padding:12px;border-radius:12px;min-width:70px;text-align:center}
+  .countdown .num{font-size:22px;font-weight:700}
+  .reaction{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:12px;cursor:pointer;margin-right:8px;}
+  .reaction .count{font-weight:700}
+  .music{margin-top:16px;}
+  .music iframe{border-radius:12px;width:100%;height:152px;border:none;}
+  .heart-float{position:fixed;pointer-events:none;font-size:22px;animation:float 2s ease-in-out forwards;}
+  @keyframes float{0%{transform:translateY(0);opacity:1;}100%{transform:translateY(-100px);opacity:0;}}
+</style>
 </head>
 <body>
-  <header>
-    <h1>Yousef ❤️ Malak</h1>
-    <p>I love you — monthsary: <strong>11/11</strong></p>
-    <p>met: 7/11  •  together: 8/11</p>
-  </header>
+<div class="wrap">
+  <div class="card">
+    <header class="top">
+      <div class="logo">Yousef ❤️ Malak</div>
+    </header>
 
-  <div id="password-card" class="card">
-    <h2>Enter our love password 💌</h2>
-    <input id="password-input" placeholder="type the password..." />
-    <button onclick="unlock()">Enter</button>
-    <p style="font-size:0.8rem;opacity:0.6">hint: it's the little word I asked you to use 💕</p>
+    <!-- password -->
+    <div id="lock" class="lock-screen">
+      <div style="text-align:center">
+        <div style="font-family:Parisienne;font-size:28px;color:var(--accent)">Hey Malak…</div>
+        <div class="small" style="margin-top:6px">Enter our love password 💌</div>
+      </div>
+      <input id="pw" type="password" placeholder="Love password" />
+      <button class="btn" id="openBtn">Open ❤️</button>
+    </div>
+
+    <!-- content -->
+    <div id="main" class="content">
+      <div class="greet">
+        <h1>Hi my beautiful Malak 💞</h1>
+        <p>It’s us — Yousef & Malak. From 7/11 when we met, to 8/11 when we became official, and every moment since then — you’ve been everything.</p>
+
+        <div class="countdown">
+          <div class="box"><div class="num" id="d">00</div><div class="small">Days</div></div>
+          <div class="box"><div class="num" id="h">00</div><div class="small">Hours</div></div>
+          <div class="box"><div class="num" id="m">00</div><div class="small">Mins</div></div>
+          <div class="box"><div class="num" id="s">00</div><div class="small">Secs</div></div>
+        </div>
+
+        <div>
+          <button class="reaction" id="heartBtn">❤️ <span class="count" id="heartCount">0</span></button>
+          <button class="reaction" id="roseBtn">🌹 <span class="count" id="roseCount">0</span></button>
+          <button class="reaction" id="starBtn">✨ <span class="count" id="starCount">0</span></button>
+        </div>
+
+        <div class="music">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3D5jgROA3ffEU5tfSf5M4q?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+
+        <div class="paragraphs">
+          <p>Malak, I still remember the first time i met you on 7/11  how you suddenly made time stop. I didnt know it then but that was the beginning of something Id never want to end.</p>
+          <p>And then came 8/11 our day. The day I got to call you mine. It wasnt just a date, it was the start of our forever. Since that moment every single day has had meaning just because you are in it.</p>
+          <p>Every time I think about you my heart feels at peace. You are my safe home, my favorite person, my beautiful good baby girl, my real family, my wife, my everything. I thank God for you every day.</p>
+          <p>Even when things arent perfect, we still are because love isnt about perfection. Its about choosing each other through everything, and I'll keep choosing you again and again, no matter what.</p>
+          <p>I love how you laugh at my dumb jokes how you get shy sometimes and how you look at me like Im the only person in the world. You have no idea how much that means to me.</p>
+          <p>Our story is my favorite because its real, its ours, and its full of love. From the little chats to the deep talks, from the laughs to the quiet moments, every piece of it feels like home.</p>
+          <p>Malak, you are my heart in human form. No matter what the world throws at us, I'll always be your biggest supporter your loudest cheerleader and your forever person.</p>
+          <p>Here’s to us to every monthsary, every memory, every late night talk, every laugh, every dream. And here is to 11/11, our next milestone, and every one that comes after.</p>
+          <p>Because this isnt just love this is our true love. Something beautiful, something rare, something that will always be “Yousef & Malak forever.”</p>
+          <p>Forever yours,<br><b>Yousef ❤️</b></p>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div id="content" class="hidden">
-    <div class="card">
-      <h2>Hallooo babyy welcome to our little corner</h2>
-      <p>you unlocked this little corner of the web. this place is just for us. tiny, honest, and ready to grow.</p>
-    </div>
+<script>
+const password = "yousef&malak4ever";
+const openBtn = document.getElementById('openBtn');
+const pw = document.getElementById('pw');
+const lock = document.getElementById('lock');
+const main = document.getElementById('main');
 
-    <div class="card">
-      <h3>Countdown to Our Next Monthsary 🎉</h3>
-      <div id="countdown" style="font-size:1.5rem; font-weight:600; color:#ff4d79; text-align:center;"></div>
-    </div>
+openBtn.onclick = check;
+pw.addEventListener('keydown', e=>{if(e.key==='Enter')check();});
 
-    <div id="paragraphs" class="card">
-      <h3>Letters & Thoughts (for you)</h3>
-      <div id="paragraph-list"></div>
-      <p style="font-size:0.8rem;opacity:0.6">these are small notes i wrote for you — honest, messy, true.</p>
-    </div>
+function check(){
+  if(pw.value.trim().toLowerCase() === password.toLowerCase()){
+    lock.style.display='none';
+    main.style.display='block';
+    hearts();
+  } else {
+    pw.style.border='1px solid #ff6b9a';
+    setTimeout(()=>pw.style.border='1px solid rgba(255,255,255,0.04)',800);
+  }
+}
 
-    <div id="gallery" class="card">
-      <h3>Our Gallery</h3>
-      <input type="file" multiple accept="image/*" id="photo-input" />
-      <div id="gallery-grid" class="grid"></div>
-    </div>
+/* countdown to next 11/11 */
+const targetDate = nextTargetDate(11,11);
+function nextTargetDate(month,day){
+  const now=new Date();let y=now.getFullYear();
+  const t=new Date(y,month-1,day,0,0,0);
+  if(t<now)t.setFullYear(y+1);
+  return t;
+}
+function updateCountdown(){
+  const now=new Date();let diff=(targetDate-now)/1000;
+  const d=Math.floor(diff/86400);diff%=86400;
+  const h=Math.floor(diff/3600);diff%=3600;
+  const m=Math.floor(diff/60);const s=Math.floor(diff%60);
+  document.getElementById('d').textContent=d.toString().padStart(2,'0');
+  document.getElementById('h').textContent=h.toString().padStart(2,'0');
+  document.getElementById('m').textContent=m.toString().padStart(2,'0');
+  document.getElementById('s').textContent=s.toString().padStart(2,'0');
+}
+setInterval(updateCountdown,1000);updateCountdown();
 
-    <div id="songs" class="card">
-      <h3>Songs that remind me of you</h3>
-      <p style="font-size:0.9rem;opacity:0.8">i put the spotify tracks you gave me here — click play and think of me 💭🎶</p>
-      <div id="spotify"></div>
-    </div>
+/* hearts float */
+function hearts(){
+  for(let i=0;i<20;i++){
+    setTimeout(()=>{
+      const e=document.createElement('div');
+      e.textContent=['💖','💗','💞','💕'][Math.floor(Math.random()*4)];
+      e.className='heart-float';
+      e.style.left=(Math.random()*90)+'vw';
+      e.style.top='70vh';
+      e.style.fontSize=(Math.random()*16+14)+'px';
+      document.body.appendChild(e);
+      setTimeout(()=>e.remove(),2000);
+    },i*120);
+  }
+}
 
-    <footer>
-      <p>made with lots of waiting, a little courage, and a playlist. — keep this place private 💖</p>
-    </footer>
-  </div>
+/* reactions */
+let heartsCount=+localStorage.getItem('h')||0;
+let roseCount=+localStorage.getItem('r')||0;
+let starCount=+localStorage.getItem('s')||0;
+function render(){
+  heartCount.textContent=heartsCount;
+  roseCountEl.textContent=roseCount;
+  starCountEl.textContent=starCount;
+}
+const heartCount=document.getElementById('heartCount');
+const roseCountEl=document.getElementById('roseCount');
+const starCountEl=document.getElementById('starCount');
+render();
 
-  <script>
-    const PASSWORD = 'yousef&malak4ever';
-    const paragraphs = [
-      'Malak, from the moment we met online on 7/11, something magical sparked between us. It wasnt just a simple chat it felt like finding a missing piece I didnt even know I was searching for. You completely changed my world in the best possible way.',
-      'I remember those first texts stretching hours into the early morning. I was captivated by your voice when you sent me those voice messages, your kindness, and the way you spoke. You listen without judgment, you encouraged my crazy hopes, and you make me feel like the most important person in the universe.',
-      'You are my anchor when I feel lost and my biggest cheerleader when I win. Even on the toughest days, just seeing your name pop up on my screen brings a ridiculous, uncontrollable smile to my face. You are my safe place, my comfort, and my favorite adventure, all rolled into one.',
-      'I know were counting down the days to 11/11, but honestly, every single day with you is a celebration. Its the little things that mean the most: the silly inside jokes, the way we can finish each others sentences, and the pure, easy joy of simply existing together, even when were kilometers apart (not that far).',
-      'You deserve the world and everything my beautiful baby girl, Malak, and I promise to spend every day of my life trying to give it to you. I love how smart you are, how beautiful you are inside and out, and the strength you carry without even trying.',
-      'we met on 7/11, and every day since has been a new, quiet miracle.',
-      'we became together on 8/11 — a date that changed how i imagine the future.',
-      'You are my forever. I cant wait to see what beautiful memories we create next. Thank you for being you, for loving me, and for choosing us.',
-      'i want to make a thousand simple promises and keep every single one.',
-      'Yours always, Yousef 💖'
-    ];
-
-    const spotifyLinks = [
-      'https://open.spotify.com/track/3D5jgROA3ffEU5tfSf5M4q',
-      'https://open.spotify.com/track/5GpfyJrKHJI36jDKtQiyGN',
-      'https://open.spotify.com/track/2fuYa3Lx06QQJAm0MjztKr'
-    ];
-
-    function unlock() {
-      const val = document.getElementById('password-input').value;
-      if (val === PASSWORD) {
-        document.getElementById('password-card').classList.add('hidden');
-        document.getElementById('content').classList.remove('hidden');
-        renderParagraphs();
-        renderSpotify();
-        launchHearts();
-        launchStickers();
-        startCountdown();
-      } else {
-        alert('Wrong password — try again, baby 💌');
-      }
-    }
-
-    function renderParagraphs() {
-      const list = document.getElementById('paragraph-list');
-      paragraphs.forEach((p, i) => {
-        const container = document.createElement('div');
-        const el = document.createElement('p');
-        el.textContent = p;
-        el.style.animationDelay = `${i * 0.2}s`;
-
-        const reactions = document.createElement('div');
-        reactions.className = 'reaction-buttons';
-        ['💖','😭','😂','😍','😘'].forEach(emoji => {
-          const btn = document.createElement('button');
-          btn.textContent = emoji;
-          btn.onclick = e => floatEmoji(e, emoji);
-          reactions.appendChild(btn);
-        });
-
-        container.appendChild(el);
-        container.appendChild(reactions);
-        list.appendChild(container);
-      });
-    }
-
-    function floatEmoji(e, emoji) {
-      const emojiEl = document.createElement('div');
-      emojiEl.className = 'floating-emoji';
-      emojiEl.textContent = emoji;
-      const rect = e.target.getBoundingClientRect();
-      emojiEl.style.left = rect.left + rect.width / 2 + 'px';
-      emojiEl.style.top = rect.top + 'px';
-      document.body.appendChild(emojiEl);
-      setTimeout(() => emojiEl.remove(), 2000);
-    }
-
-    function renderSpotify() {
-      const div = document.getElementById('spotify');
-      spotifyLinks.forEach((s) => {
-        const id = s.match(/track\/([A-Za-z0-9]+)/);
-        if (id) {
-          const frame = document.createElement('iframe');
-          frame.src = `https://open.spotify.com/embed/track/${id[1]}?utm_source=generator&theme=0`;
-          frame.height = 352;
-          frame.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
-          div.appendChild(frame);
-        }
-      });
-    }
-
-    document.getElementById('photo-input').addEventListener('change', e => {
-      const grid = document.getElementById('gallery-grid');
-      Array.from(e.target.files).forEach(file => {
-        const reader = new FileReader();
-        reader.onload = ev => {
-          const img = document.createElement('img');
-          img.src = ev.target.result;
-          grid.appendChild(img);
-        };
-        reader.readAsDataURL(file);
-      });
-    });
-
-    function startCountdown() {
-      const countdownEl = document.getElementById('countdown');
-      function updateCountdown() {
-        const now = new Date();
-        let next = new Date(now.getFullYear(), 10, 11);
-        if (now > next) next = new Date(now.getFullYear() + 1, 10, 11);
-        const diff = next - now;
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
-        countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s left 💕`;
-      }
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-    }
-
-    function launchHearts() {
-      setInterval(() => {
-        const heart = document.createElement('div');
-        heart.className = 'heart';
-        const colors = ['#ff4d79','#ff7aa8','#ff99b3','#ffb6c1','#ffccd5'];
-        heart.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.animationDuration = 3 + Math.random() * 3 + 's';
-        heart.style.transform = 'scale(' + (0.5 + Math.random()) + ') rotate(45deg)';
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 6000);
-      }, 300);
-    }
-
-    function launchStickers() {
-      const stickers = ['💖','🧸','💫','🌸','✨','💕'];
-      setInterval(() => {
-        const el = document.createElement('div');
-        el.className = 'sticker';
-        el.textContent = stickers[Math.floor(Math.random()*stickers.length)];
-        el.style.left = Math.random() * 100 + 'vw';
-        el.style.animationDuration = 8 + Math.random() * 5 + 's';
-        el.style.fontSize = 20 + Math.random() * 20 + 'px';
-        document.body.appendChild(el);
-        setTimeout(() => el.remove(), 10000);
-      }, 2500);
-    }
-  </script>
+heartBtn.onclick=()=>{heartsCount++;localStorage.setItem('h',heartsCount);render();hearts();};
+roseBtn.onclick=()=>{roseCount++;localStorage.setItem('r',roseCount);render();hearts();};
+starBtn.onclick=()=>{starCount++;localStorage.setItem('s',starCount);render();hearts();};
+</script>
 </body>
 </html>
