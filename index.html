@@ -1,220 +1,187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Water Wise, Future Bright</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Yousef ❤️ Malak</title>
 
-    body {
-      background: linear-gradient(to bottom, #e0f7fa, #ffffff);
-      overflow-x: hidden;
-      color: #003366;
-      position: relative;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    .animated-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      overflow: hidden;
-    }
-
-    .wave {
-      position: absolute;
-      width: 200%;
-      height: 200px;
-      background: rgba(0, 183, 255, 0.2);
-      border-radius: 43%;
-      animation: waveAnim 10s infinite linear;
-    }
-
-    .wave:nth-child(2) {
-      animation-delay: -5s;
-      background: rgba(0, 183, 255, 0.15);
-    }
-
-    @keyframes waveAnim {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    header {
-      background: #0077b6;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-      animation: fadeInDown 1s ease-out;
-    }
-
-    header img {
-      width: 120px;
-      animation: bounce 2s infinite;
-    }
-
-    header h1 {
-      font-size: 2.8rem;
-      margin-top: 15px;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
-      animation: fadeInUp 1s ease-in;
-    }
-
-    h2 {
-      font-size: 2rem;
-      color: #004d66;
-      margin-bottom: 15px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease-in-out;
-    }
-
-    p, ul, .cta {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease-in-out;
-    }
-
-    .show { opacity: 1 !important; transform: translateY(0) !important; }
-
-    ul {
-      margin-bottom: 20px;
-      padding-left: 20px;
-    }
-
-    .highlight {
-      background: #d0f0ff;
-      padding: 10px;
-      border-left: 4px solid #0077b6;
-      margin-bottom: 30px;
-    }
-
-    .cta {
-      background: #00b4d8;
-      color: white;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      font-size: 1.3rem;
-      margin: 30px 0;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    footer {
-      background: #0077b6;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-  </style>
+<style>
+  :root{
+    --bg:#0b1020;
+    --card:#0f1626cc;
+    --accent:#ff6b9a;
+    --accent-2:#ffa07a;
+    --muted:#bfc9d9;
+    --blur: 12px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:Poppins,system-ui;background:radial-gradient(1000px 500px at 10% 10%, rgba(255,107,154,0.07), transparent 10%),radial-gradient(800px 400px at 90% 90%, rgba(255,160,122,0.04), transparent 10%),var(--bg);color:#e9eef8;}
+  .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px;}
+  .card{
+    width:100%;max-width:960px;background:linear-gradient(180deg,var(--card),rgba(255,255,255,0.02));
+    border-radius:20px;padding:26px;border:1px solid rgba(255,255,255,0.04);
+    backdrop-filter: blur(var(--blur));
+    box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    position:relative;overflow:hidden;
+  }
+  header.top{display:flex;gap:12px;align-items:center;margin-bottom:18px;}
+  .logo{font-family:Parisienne,serif;font-size:34px;color:var(--accent);}
+  .logo .heart{animation:beat 1s infinite ease-in-out;}
+  @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+  .small{font-size:12px;color:var(--muted)}
+  .lock-screen{display:grid;place-items:center;padding:28px;border-radius:14px;background:rgba(255,255,255,0.02);gap:12px;}
+  input[type=password]{padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;font-size:16px;width:300px;}
+  button.btn{padding:10px 16px;border-radius:12px;border:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#120815;font-weight:600;cursor:pointer;}
+  .content{display:none;animation:fadeIn 0.8s forwards;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .greet h1{font-family:Parisienne;font-size:38px;color:var(--accent)}
+  .greet p{color:var(--muted)}
+  .paragraphs{margin-top:20px;line-height:1.8;font-size:15px;color:#e9eef8}
+  .paragraphs p{margin-bottom:14px;}
+  .countdown{display:flex;gap:12px;margin:12px 0;}
+  .countdown .box{background:rgba(255,255,255,0.02);padding:12px;border-radius:12px;min-width:70px;text-align:center}
+  .countdown .num{font-size:22px;font-weight:700}
+  .reaction{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:12px;cursor:pointer;margin-right:8px;}
+  .reaction .count{font-weight:700}
+  .music{margin-top:16px;}
+  .music iframe{border-radius:12px;width:100%;height:152px;border:none;}
+  .heart-float{position:fixed;pointer-events:none;font-size:22px;animation:float 2s ease-in-out forwards;}
+  @keyframes float{0%{transform:translateY(0);opacity:1;}100%{transform:translateY(-100px);opacity:0;}}
+</style>
 </head>
 <body>
-  <div class="animated-bg">
-    <div class="wave"></div>
-    <div class="wave"></div>
+<div class="wrap">
+  <div class="card">
+    <header class="top">
+      <div class="logo">Yousef ❤️ Malak</div>
+    </header>
+
+    <!-- password -->
+    <div id="lock" class="lock-screen">
+      <div style="text-align:center">
+        <div style="font-family:Parisienne;font-size:28px;color:var(--accent)">Hey Malak…</div>
+        <div class="small" style="margin-top:6px">Enter our love password 💌</div>
+      </div>
+      <input id="pw" type="password" placeholder="Love password" />
+      <button class="btn" id="openBtn">Open ❤️</button>
+    </div>
+
+    <!-- content -->
+    <div id="main" class="content">
+      <div class="greet">
+        <h1>Hi my beautiful Malak 💞</h1>
+        <p>It’s us — Yousef & Malak. From 7/11 when we met, to 8/11 when we became official, and every moment since then — you’ve been everything.</p>
+
+        <div class="countdown">
+          <div class="box"><div class="num" id="d">00</div><div class="small">Days</div></div>
+          <div class="box"><div class="num" id="h">00</div><div class="small">Hours</div></div>
+          <div class="box"><div class="num" id="m">00</div><div class="small">Mins</div></div>
+          <div class="box"><div class="num" id="s">00</div><div class="small">Secs</div></div>
+        </div>
+
+        <div>
+          <button class="reaction" id="heartBtn">❤️ <span class="count" id="heartCount">0</span></button>
+          <button class="reaction" id="roseBtn">🌹 <span class="count" id="roseCount">0</span></button>
+          <button class="reaction" id="starBtn">✨ <span class="count" id="starCount">0</span></button>
+        </div>
+
+        <div class="music">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3D5jgROA3ffEU5tfSf5M4q?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+
+        <div class="paragraphs">
+          <p>Malak, I still remember the first time i met you on 7/11  how you suddenly made time stop. I didnt know it then but that was the beginning of something Id never want to end.</p>
+          <p>And then came 8/11 our day. The day I got to call you mine. It wasnt just a date, it was the start of our forever. Since that moment every single day has had meaning just because you are in it.</p>
+          <p>Every time I think about you my heart feels at peace. You are my safe home, my favorite person, my beautiful good baby girl, my real family, my wife, my everything. I thank God for you every day.</p>
+          <p>Even when things arent perfect, we still are because love isnt about perfection. Its about choosing each other through everything, and I'll keep choosing you again and again, no matter what.</p>
+          <p>I love how you laugh at my dumb jokes how you get shy sometimes and how you look at me like Im the only person in the world. You have no idea how much that means to me.</p>
+          <p>Our story is my favorite because its real, its ours, and its full of love. From the little chats to the deep talks, from the laughs to the quiet moments, every piece of it feels like home.</p>
+          <p>Malak, you are my heart in human form. No matter what the world throws at us, I'll always be your biggest supporter your loudest cheerleader and your forever person.</p>
+          <p>Here’s to us to every monthsary, every memory, every late night talk, every laugh, every dream. And here is to 11/11, our next milestone, and every one that comes after.</p>
+          <p>Because this isnt just love this is our true love. Something beautiful, something rare, something that will always be “Yousef & Malak forever.”</p>
+          <p>Forever yours,<br><b>Yousef ❤️</b></p>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 
-  <header>
-    <img src="https://cdn.corenexis.com/media?w30fcu&168H&p&b&8eyq.png" alt="Water Wise Logo" />
-    <h1>Water Wise, Future Bright</h1>
-  </header>
+<script>
+const password = "yousef&malak4ever";
+const openBtn = document.getElementById('openBtn');
+const pw = document.getElementById('pw');
+const lock = document.getElementById('lock');
+const main = document.getElementById('main');
 
-  <section>
-    <div class="highlight">
-      <h2>💧 Campaign Mission</h2>
-      <p>Water isn’t just a resource – it’s life, it’s survival, it’s love. When we waste it, we erase futures. When we protect it, we preserve humanity. Every drop you save is a heartbeat for our planet.</p>
-    </div>
+openBtn.onclick = check;
+pw.addEventListener('keydown', e=>{if(e.key==='Enter')check();});
 
-    <h2>🌍 Who Are We Reaching?</h2>
-    <p>Our target is the global population. This includes households, industries, schools, and governments. Everyone, everywhere, has a role to play in saving water for a brighter future.</p>
+function check(){
+  if(pw.value.trim().toLowerCase() === password.toLowerCase()){
+    lock.style.display='none';
+    main.style.display='block';
+    hearts();
+  } else {
+    pw.style.border='1px solid #ff6b9a';
+    setTimeout(()=>pw.style.border='1px solid rgba(255,255,255,0.04)',800);
+  }
+}
 
-    <h2>🧠 What You Should Think</h2>
-    <p>"Water is not infinite." Your small actions matter. We all share the same water planet. Use it wisely.</p>
+/* countdown to next 11/11 */
+const targetDate = nextTargetDate(11,11);
+function nextTargetDate(month,day){
+  const now=new Date();let y=now.getFullYear();
+  const t=new Date(y,month-1,day,0,0,0);
+  if(t<now)t.setFullYear(y+1);
+  return t;
+}
+function updateCountdown(){
+  const now=new Date();let diff=(targetDate-now)/1000;
+  const d=Math.floor(diff/86400);diff%=86400;
+  const h=Math.floor(diff/3600);diff%=3600;
+  const m=Math.floor(diff/60);const s=Math.floor(diff%60);
+  document.getElementById('d').textContent=d.toString().padStart(2,'0');
+  document.getElementById('h').textContent=h.toString().padStart(2,'0');
+  document.getElementById('m').textContent=m.toString().padStart(2,'0');
+  document.getElementById('s').textContent=s.toString().padStart(2,'0');
+}
+setInterval(updateCountdown,1000);updateCountdown();
 
-    <h2>💙 What You Should Feel</h2>
-    <p>A deep connection to water, a sense of responsibility, and hope for change. Saving water is saving lives.</p>
+/* hearts float */
+function hearts(){
+  for(let i=0;i<20;i++){
+    setTimeout(()=>{
+      const e=document.createElement('div');
+      e.textContent=['💖','💗','💞','💕'][Math.floor(Math.random()*4)];
+      e.className='heart-float';
+      e.style.left=(Math.random()*90)+'vw';
+      e.style.top='70vh';
+      e.style.fontSize=(Math.random()*16+14)+'px';
+      document.body.appendChild(e);
+      setTimeout(()=>e.remove(),2000);
+    },i*120);
+  }
+}
 
-    <h2>⚙️ What You Should Do</h2>
-    <ul>
-      <li>Turn off taps when not in use</li>
-      <li>Use water-efficient appliances</li>
-      <li>Join water-saving challenges</li>
-      <li>Share water tips on social media</li>
-      <li>Educate others in your community</li>
-    </ul>
+/* reactions */
+let heartsCount=+localStorage.getItem('h')||0;
+let roseCount=+localStorage.getItem('r')||0;
+let starCount=+localStorage.getItem('s')||0;
+function render(){
+  heartCount.textContent=heartsCount;
+  roseCountEl.textContent=roseCount;
+  starCountEl.textContent=starCount;
+}
+const heartCount=document.getElementById('heartCount');
+const roseCountEl=document.getElementById('roseCount');
+const starCountEl=document.getElementById('starCount');
+render();
 
-    <div class="cta">
-      🌊 Join the #WaterWise Movement – Your Future Deserves It
-    </div>
-
-    <h2>🚀 Our Goals</h2>
-    <p>
-      ✅ Reduce global water waste<br />
-      ✅ Increase public awareness<br />
-      ✅ Push for better policies<br />
-      ✅ Support clean water access projects
-    </p>
-
-    <h2>📸 Slogans & Social Media</h2>
-    <p>
-      “You Are 70% Water. Protect Yourself.”<br />
-      “Don’t Let the Future Dry Out.”<br />
-      “Your Tap, Their Tomorrow.”<br /><br />
-      Tag us on your water-saving journey with <strong>#WaterWiseFutureBright</strong>!
-    </p>
-  </section>
-
-  <footer>
-    © 2025 Water Wise Campaign | Designed with 💧 by Earth for Earth
-  </footer>
-
-  <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll('h2, p, ul, .cta').forEach(el => {
-      observer.observe(el);
-    });
-  </script>
+heartBtn.onclick=()=>{heartsCount++;localStorage.setItem('h',heartsCount);render();hearts();};
+roseBtn.onclick=()=>{roseCount++;localStorage.setItem('r',roseCount);render();hearts();};
+starBtn.onclick=()=>{starCount++;localStorage.setItem('s',starCount);render();hearts();};
+</script>
 </body>
 </html>
