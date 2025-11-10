@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Water Wise, Future Bright</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+      overflow-x: hidden;
+      color: #003366;
+      position: relative;
+    }
+
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .wave {
+      position: absolute;
+      width: 200%;
+      height: 200px;
+      background: rgba(0, 183, 255, 0.2);
+      border-radius: 43%;
+      animation: waveAnim 10s infinite linear;
+    }
+
+    .wave:nth-child(2) {
+      animation-delay: -5s;
+      background: rgba(0, 183, 255, 0.15);
+    }
+
+    @keyframes waveAnim {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    header {
+      background: #0077b6;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    header img {
+      width: 120px;
+      animation: bounce 2s infinite;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-top: 15px;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+      animation: fadeInUp 1s ease-in;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #004d66;
+      margin-bottom: 15px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-in-out;
+    }
+
+    p, ul, .cta {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-in-out;
+    }
+
+    .show { opacity: 1 !important; transform: translateY(0) !important; }
+
+    ul {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
+
+    .highlight {
+      background: #d0f0ff;
+      padding: 10px;
+      border-left: 4px solid #0077b6;
+      margin-bottom: 30px;
+    }
+
+    .cta {
+      background: #00b4d8;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 1.3rem;
+      margin: 30px 0;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    footer {
+      background: #0077b6;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="animated-bg">
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>
+
+  <header>
+    <img src="https://cdn.corenexis.com/media?w30fcu&168H&p&b&8eyq.png" alt="Water Wise Logo" />
+    <h1>Water Wise, Future Bright</h1>
+  </header>
+
+  <section>
+    <div class="highlight">
+      <h2>💧 Campaign Mission</h2>
+      <p>Water isn’t just a resource – it’s life, it’s survival, it’s love. When we waste it, we erase futures. When we protect it, we preserve humanity. Every drop you save is a heartbeat for our planet.</p>
+    </div>
+
+    <h2>🌍 Who Are We Reaching?</h2>
+    <p>Our target is the global population. This includes households, industries, schools, and governments. Everyone, everywhere, has a role to play in saving water for a brighter future.</p>
+
+    <h2>🧠 What You Should Think</h2>
+    <p>"Water is not infinite." Your small actions matter. We all share the same water planet. Use it wisely.</p>
+
+    <h2>💙 What You Should Feel</h2>
+    <p>A deep connection to water, a sense of responsibility, and hope for change. Saving water is saving lives.</p>
+
+    <h2>⚙️ What You Should Do</h2>
+    <ul>
+      <li>Turn off taps when not in use</li>
+      <li>Use water-efficient appliances</li>
+      <li>Join water-saving challenges</li>
+      <li>Share water tips on social media</li>
+      <li>Educate others in your community</li>
+    </ul>
+
+    <div class="cta">
+      🌊 Join the #WaterWise Movement – Your Future Deserves It
+    </div>
+
+    <h2>🚀 Our Goals</h2>
+    <p>
+      ✅ Reduce global water waste<br />
+      ✅ Increase public awareness<br />
+      ✅ Push for better policies<br />
+      ✅ Support clean water access projects
+    </p>
+
+    <h2>📸 Slogans & Social Media</h2>
+    <p>
+      “You Are 70% Water. Protect Yourself.”<br />
+      “Don’t Let the Future Dry Out.”<br />
+      “Your Tap, Their Tomorrow.”<br /><br />
+      Tag us on your water-saving journey with <strong>#WaterWiseFutureBright</strong>!
+    </p>
+  </section>
+
+  <footer>
+    © 2025 Water Wise Campaign | Designed with 💧 by Earth for Earth
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('h2, p, ul, .cta').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
